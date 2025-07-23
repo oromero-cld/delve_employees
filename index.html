@@ -190,6 +190,24 @@
             document.getElementById('popup').style.display = 'none';
             document.getElementById('popupOverlay').style.display = 'none';
         }
+	function openPopup(title, content) {
+        document.getElementById('popupTitle').textContent = title;
+        document.getElementById('popupContent').textContent = content;
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('popupOverlay').style.display = 'block';
+        document.getElementById('popup').focus(); // optional if popup is focusable
+    }
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('popupOverlay').style.display = 'none';
+    }
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closePopup();
+        }
+    });
     </script>
 </body>
 </html>
