@@ -228,6 +228,21 @@
             overlay.style.display = 'none';
         }, 300); // Match the CSS transition duration
     }
+	function adjustGridColumns() {
+	        const cards = document.querySelectorAll('.employee-card');
+	        const container = document.querySelector('.grid-container');
+	        const total = cards.length;
+	
+	        let cols = Math.ceil(Math.sqrt(total));
+	
+	        while (total % cols === 1 && cols > 1) {
+	            cols--;
+        }
+
+        container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    }
+    window.addEventListener('DOMContentLoaded', adjustGridColumns);
+    window.addEventListener('resize', adjustGridColumns);
 
     document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
