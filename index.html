@@ -15,7 +15,7 @@
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+            gap: 15px 10px;
             justify-content: center;
             max-width: 1200px;
             margin: auto;
@@ -84,7 +84,18 @@
 	.employee-card:focus {
 		outline: 2px solid #31636b;
 		box-shadow: 0 0 10px rgba(49, 99, 107, 0.4);
-	}  
+	}
+	@media (max-width: 600px) {
+    		.grid-container {
+        		padding: 10px;
+        		grid-template-columns: repeat(2, 1fr);
+    		}
+
+    		.employee-card {
+        		max-width: none;
+        		margin: 0;
+    		}
+	}
     </style>
 </head>
 <body>
@@ -197,17 +208,15 @@
         document.getElementById('popupOverlay').style.display = 'block';
         document.getElementById('popup').focus(); // optional if popup is focusable
     }
-
-    function closePopup() {
+    	function closePopup() {
         document.getElementById('popup').style.display = 'none';
         document.getElementById('popupOverlay').style.display = 'none';
     }
-
-    document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') {
-            closePopup();
-        }
-    });
+    	document.addEventListener('keydown', function (event) {
+        	if (event.key === 'Escape') {
+            		closePopup();
+        	}
+    	});
     </script>
 </body>
 </html>
